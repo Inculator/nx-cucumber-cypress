@@ -1,0 +1,24 @@
+{
+  "name": "cypress-cucumber",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cypress-cucumber/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/cypress-cucumber/cypress.config.js",
+        "baseUrl": "http://localhost:4200",
+        "testingType": "e2e"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cypress-cucumber/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": []
+}
